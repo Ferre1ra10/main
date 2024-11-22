@@ -98,7 +98,42 @@
     width: 700px;}
             a{text-decoration: none;
             color: black;}
-            
+            /* From Uiverse.io by alexruix */ 
+.group {
+  display: flex;
+  line-height: 28px;
+  align-items: center;
+  position: relative;
+  max-width: 190px;
+}
+
+.input {
+  height: 40px;
+  line-height: 28px;
+  padding: 0 1rem;
+  width: 100%;
+  padding-left: 2.5rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  outline: none;
+  background-color: #f1bd96;
+  color: black;
+  box-shadow: 0 0 5px #f1bd96, 0 0 0 10px #f1bd96;
+  transition: .3s ease;
+}
+
+.input::placeholder {
+  color: black;
+}
+
+.icon {
+  position: absolute;
+  left: 1rem;
+  fill: black;
+  width: 1rem;
+  height: 1rem;
+}
+
     </style>
 </head>
 
@@ -112,6 +147,17 @@
             <li><button><a href="contato.html">Contato</a></button></li>
         </ul>
     </nav>
+    <br><br>
+    <center>
+    <div class="group">
+        <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+            <g>
+                <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
+            </g>
+        </svg>
+        <input placeholder="Pesquisar" type="search" class="input">
+    </div>
+</center>
    <div class="content">
    <a href="moussedelimao.html"><h1>Mousse de Limão</h1></a><br><a href="moussedelimao.html"> <img src="mousse de limão.jpg" alt=""></a>
 </div>
@@ -125,9 +171,25 @@
     <a href="empadao.html"><h1>Empadão de Frango</h1></a> <br><a href="empadao.html"> <img src="empadão de frango.jpg" alt=""></a>
 </div>
    
-    <footer>
-        <p>© 2024 - Todos os direitos reservados</p>
-    </footer>
+<footer>
+    <p>© 2024 - Temperos e Tradições</p>
+</footer>
+<script>
+    document.querySelector('.input').addEventListener('input', function () {
+        const query = this.value.toLowerCase(); // Texto da barra de pesquisa em minúsculas
+        const items = document.querySelectorAll('.content'); // Seleciona todas as divs com a classe "content"
+
+        items.forEach(item => {
+            const text = item.textContent.toLowerCase(); // Pega o texto dentro da div
+            if (text.includes(query)) {
+                item.style.display = ''; // Mostra a div
+            } else {
+                item.style.display = 'none'; // Esconde a div
+            }
+        });
+    });
+</script>
+
 </body>
 
 </html>
